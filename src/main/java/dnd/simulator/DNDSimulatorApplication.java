@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SimulatorApplication {
+public class DNDSimulatorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SimulatorApplication.class, args);
+		SpringApplication.run(DNDSimulatorApplication.class, args);
 	}
 
 }
