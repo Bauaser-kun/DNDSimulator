@@ -1,6 +1,6 @@
 package dnd.simulator.Creatures;
 
-public interface Creature {
+public class Creature {
     String type;
     String subtype;
     String size;
