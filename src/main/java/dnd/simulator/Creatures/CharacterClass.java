@@ -1,5 +1,5 @@
 package dnd.simulator.Creatures;
 
 public class CharacterClass {
-    String role;
+    public String role;
 }

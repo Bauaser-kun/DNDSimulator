@@ -7,22 +7,27 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import dnd.simulator.Creatures.supportCases.BasicRolls;
-import dnd.simulator.Creatures.supportCases.EliteRolls;
-import dnd.simulator.Creatures.supportCases.GoodRolls;
+import dnd.simulator.Creatures.supportCases.prioritizers.AtributesPrioritizer;
+import dnd.simulator.Creatures.supportCases.rolls.BasicRolls;
+import dnd.simulator.Creatures.supportCases.rolls.EliteRolls;
+import dnd.simulator.Creatures.supportCases.rolls.GoodRolls;
+import io.micrometer.common.lang.Nullable;
 
 @Component
 public class CreatureGenerator {
+    AtributesPrioritizer atributesPrioritizer = new AtributesPrioritizer();
+
     public Creature generateCreature(Map<String, String> stringProperties, String rollsUsed) {
         Creature creature = new Creature();
         creature.type = stringProperties.get("type");
+        creature.characterClass = stringProperties.get("className");
 
         creature = this.assignRolls(creature, creature.characterClass, rollsUsed);
 
         return creature;
     }
 
-    public Creature assignRolls(Creature creature, String className, String rollsUsed) {
+    public Creature assignRolls(Creature creature, @Nullable String className, String rollsUsed) {
         int highest = 0;
         int verHigh = 0;
         int high = 0;
@@ -66,9 +71,16 @@ public class CreatureGenerator {
                 break;
             case "custom":
                 break;
+            default:
+                highest = verHigh = high = 11; 
+                low = veryLow = lowest = 10;
         }
 
-        List<String> prioritizedAtributes = this.prioritizeAtributes(className);
+        if (className != null ) {
+            List<String> prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(className);
+        } else {
+            //List<String> prioritizedAtributes = this.prioritizeAtributes(creature.type);
+        }
       
         creature.strength = assignedRolls.get("strength");
         creature.constitution = assignedRolls.get("constitution");
@@ -78,99 +90,5 @@ public class CreatureGenerator {
         creature.charisma = assignedRolls.get("charisma");
 
         return creature;
-    }
-
-    public List<String> prioritizeAtributes(String className) {
-        List<String> prioritized = new ArrayList<String>(); 
-        CharacterClass currentClass = new CharacterClass();
-        Map<String, Integer> priorities = generateBasicClassPriorities(currentClass.role);
-
-        return prioritized;
-    }
-
-    public Map<String, Integer> generateBasicClassPriorities(String role) {
-        Map<String, Integer> priorities = new HashMap<>();
-            priorities.put("Strength", 0);
-            priorities.put("Constitution", 0);
-            priorities.put("Dexterity", 0);
-            priorities.put("Intelligence", 0);
-            priorities.put("Wisdom", 0);
-            priorities.put("Charisma", 0);
-
-        switch (role) {
-            case "attacker":
-                priorities.put("Strength", priorities.get("Strength") + 1);
-                priorities.put("Constitution", priorities.get("Constitution") + 1);
-                priorities.put("Dexterity", priorities.get("Dexterity" + 1));
-                break;
-            case "elusive defender":
-                priorities.put("Constitution", priorities.get("Constitution") + 2);
-                priorities.put("Dexterity", priorities.get("Dexterity" + 1));
-                break;
-            case "defender":
-                priorities.put("Constitution", priorities.get("Constitution") + 2);
-                priorities.put("Strength", priorities.get("Strength" + 1));
-                break;
-            case "long range":
-                priorities.put("Dexterity", priorities.get("Dexterity") + 2);
-                priorities.put("Constitution", priorities.get("Constitution" + 1));
-                break;
-            case "wise healer":
-                priorities.put("Wisdom", priorities.get("Wisdom") + 2);
-                priorities.put("Constitution", priorities.get("Constitution" + 1));
-                break;
-            case "reckless healer":
-                priorities.put("Wisdom", priorities.get("Wisdom") + 2);
-                priorities.put("Strength", priorities.get("Strength" + 1));
-                break;
-            case "undead healer":
-                priorities.put("Wisdom", priorities.get("Wisdom") + 2);
-                priorities.put("Charisma", priorities.get("Charisma" + 1)); 
-                break;
-            case "support mage":
-                priorities.put("Intelligence", priorities.get("Intelligence") + 1);
-                priorities.put("Constitution", priorities.get("Constitution" + 1)); 
-                priorities.put("Dexterity", priorities.get("Dexterity") + 1);
-                break;
-            case "support sorcerer":
-                priorities.put("Charisma", priorities.get("Charisma") + 1);
-                priorities.put("Constitution", priorities.get("Constitution" + 1)); 
-                priorities.put("Dexterity", priorities.get("Dexterity") + 1);
-                break;
-            case "artillery mage":
-                priorities.put("Intelligence", priorities.get("Intelligence") + 2);
-                priorities.put("Constitution", priorities.get("Constitution" + 1)); 
-                break;
-            case "artillery sorcerer":
-                priorities.put("Charisma", priorities.get("Charisma") + 2);
-                priorities.put("Constitution", priorities.get("Constitution" + 1)); 
-                break;
-            case "debuff mage":
-                priorities.put("Intelligence", priorities.get("Intelligence") + 1);
-                priorities.put("Constitution", priorities.get("Constitution" + 1)); 
-                priorities.put("Dexterity", priorities.get("Dexterity") + 1);
-                break;
-            case "debuff sorcerer":
-                priorities.put("Charisma", priorities.get("Charisma") + 1);
-                priorities.put("Constitution", priorities.get("Constitution" + 1)); 
-                priorities.put("Dexterity", priorities.get("Dexterity") + 1);
-                break;
-            case "stealth":
-                priorities.put("Dexterity", priorities.get("Dexterity") + 2);
-                priorities.put("Constitution", priorities.get("Constitution" + 1));
-                break;
-            case "reckless attacker":
-                priorities.put("Constitution", priorities.get("Constitution") + 1);
-                priorities.put("Strength", priorities.get("Strength" + 2));
-                break;
-            case "dexterious attacker":
-                priorities.put("Dexterity", priorities.get("Dexterity") + 1);
-                priorities.put("Strength", priorities.get("Strength" + 2));
-                break;
-            default:
-                break;
-        }
-
-        return priorities;
     }
 }

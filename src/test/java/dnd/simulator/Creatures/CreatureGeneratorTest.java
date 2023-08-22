@@ -7,8 +7,11 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
+import dnd.simulator.Creatures.supportCases.prioritizers.AtributesPrioritizer;
+
 public class CreatureGeneratorTest {
     CreatureGenerator generator = new CreatureGenerator();
+    AtributesPrioritizer prioritizer = new AtributesPrioritizer();
 
     @Test
     void testAssignRolls() {
@@ -30,7 +33,7 @@ public class CreatureGeneratorTest {
         String role = "attacker";
         
         //When
-        Map<String,Integer> attackerMap = generator.generateBasicClassPriorities(role);
+        Map<String,Integer> attackerMap = prioritizer.generateBasicClassPriorities(role);
 
         //Then
         assertTrue(attackerMap.size() == 6);

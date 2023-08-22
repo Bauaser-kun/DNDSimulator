@@ -1,4 +1,4 @@
-package dnd.simulator.Creatures.supportCases;
+package dnd.simulator.Creatures.supportCases.rolls;
 
 public enum EliteRolls {
     LOWEST_ROLL(8), 
