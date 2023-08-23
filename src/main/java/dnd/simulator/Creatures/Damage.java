@@ -1,4 +1,4 @@
-package dnd.simulator.Creatures;
+package dnd.simulator.creatures;
 
 import org.springframework.stereotype.Component;
 

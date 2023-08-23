@@ -1,12 +1,11 @@
-package dnd.simulator.Creatures.supportCases.prioritizers;
+package dnd.simulator.creatures.supportCases.prioritizers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dnd.simulator.Creatures.CharacterClass;
-
+import dnd.simulator.creatures.CharacterClass;
 public class AtributesPrioritizer {
     public Map<String, Integer> generateBasicClassPriorities(String role) {
         Map<String, Integer> priorities = new HashMap<>();
@@ -94,11 +93,12 @@ public class AtributesPrioritizer {
         return priorities;
     }
 
-    public List<String> prioritizeAtributes(String className) {
+    public List<String> prioritizeAtributes(String role, String className) {
         List<String> prioritized = new ArrayList<String>(); 
-        CharacterClass currentClass = new CharacterClass();
-        Map<String, Integer> priorities = generateBasicClassPriorities(currentClass.role);
+        CharacterClass characterClass;
+        Map<String, Integer> priorities = generateBasicClassPriorities(role);
 
         return prioritized;
     }
+    
 }

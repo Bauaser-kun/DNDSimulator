@@ -1,4 +1,4 @@
-package dnd.simulator.Creatures;
+package dnd.simulator.creatures;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,10 +7,10 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import dnd.simulator.Creatures.supportCases.prioritizers.AtributesPrioritizer;
-import dnd.simulator.Creatures.supportCases.rolls.BasicRolls;
-import dnd.simulator.Creatures.supportCases.rolls.EliteRolls;
-import dnd.simulator.Creatures.supportCases.rolls.GoodRolls;
+import dnd.simulator.creatures.supportCases.prioritizers.AtributesPrioritizer;
+import dnd.simulator.creatures.supportCases.rolls.BasicRolls;
+import dnd.simulator.creatures.supportCases.rolls.EliteRolls;
+import dnd.simulator.creatures.supportCases.rolls.GoodRolls;
 import io.micrometer.common.lang.Nullable;
 
 @Component
@@ -18,68 +18,77 @@ public class CreatureGenerator {
     AtributesPrioritizer atributesPrioritizer = new AtributesPrioritizer();
 
     public Creature generateCreature(Map<String, String> stringProperties, String rollsUsed) {
+        String role = "Attacker";
         Creature creature = new Creature();
         creature.type = stringProperties.get("type");
         creature.characterClass = stringProperties.get("className");
 
-        creature = this.assignRolls(creature, creature.characterClass, rollsUsed);
+        creature = this.assignRolls(creature, creature.characterClass, rollsUsed, role);
 
         return creature;
     }
 
-    public Creature assignRolls(Creature creature, @Nullable String className, String rollsUsed) {
-        int highest = 0;
-        int verHigh = 0;
-        int high = 0;
-        int low = 0;
-        int veryLow = 0;
-        int lowest = 0;
+    public Creature assignRolls(Creature creature, @Nullable String className, String rollsUsed, String role) {
+        List<Integer> atributeValues = new ArrayList<>();
+        List<String> prioritizedAtributes = new ArrayList<>();
+        
         Map<String, Integer> assignedRolls = new HashMap<>();
+        assignedRolls.put("strength", null);
+        assignedRolls.put("constitution", null);
+        assignedRolls.put("dexterity", null);
+        assignedRolls.put("intelligence", null);
+        assignedRolls.put("wisdom", null);
+        assignedRolls.put("charisma", null);
 
         switch (rollsUsed) {
             case "basic": 
-                highest = BasicRolls.HIGHEEST_ROLL.getRoll();
-                verHigh = BasicRolls.VERY_HIGH_ROLL.getRoll();
-                high = BasicRolls.HIGH_ROLL.getRoll();
-                low = BasicRolls.LOW_ROLL.getRoll();
-                veryLow = BasicRolls.VERY_LOW_ROLL.getRoll();
-                lowest = BasicRolls.LOWEST_ROLL.getRoll();
+                atributeValues.add(BasicRolls.HIGHEEST_ROLL.getRoll());
+                atributeValues.add(BasicRolls.VERY_HIGH_ROLL.getRoll());
+                atributeValues.add(BasicRolls.HIGH_ROLL.getRoll());
+                atributeValues.add(BasicRolls.LOW_ROLL.getRoll());
+                atributeValues.add(BasicRolls.VERY_LOW_ROLL.getRoll());
+                atributeValues.add(BasicRolls.LOWEST_ROLL.getRoll());
                 break;
             case "good":
-                highest = GoodRolls.HIGHEEST_ROLL.getRoll();
-                verHigh = GoodRolls.VERY_HIGH_ROLL.getRoll();
-                high = GoodRolls.HIGH_ROLL.getRoll();
-                low = GoodRolls.LOW_ROLL.getRoll();
-                veryLow = GoodRolls.VERY_LOW_ROLL.getRoll();
-                lowest = GoodRolls.LOWEST_ROLL.getRoll();
+                atributeValues.add(GoodRolls.HIGHEEST_ROLL.getRoll());
+                atributeValues.add(GoodRolls.VERY_HIGH_ROLL.getRoll());
+                atributeValues.add(GoodRolls.HIGH_ROLL.getRoll());
+                atributeValues.add(GoodRolls.LOW_ROLL.getRoll());
+                atributeValues.add(GoodRolls.VERY_LOW_ROLL.getRoll());
+                atributeValues.add(GoodRolls.LOWEST_ROLL.getRoll());
                 break;
             case "elite":
-                highest = EliteRolls.HIGHEEST_ROLL.getRoll();
-                verHigh = EliteRolls.VERY_HIGH_ROLL.getRoll();
-                high = EliteRolls.HIGH_ROLL.getRoll();
-                low = EliteRolls.LOW_ROLL.getRoll();
-                veryLow = EliteRolls.VERY_LOW_ROLL.getRoll();
-                lowest = EliteRolls.LOWEST_ROLL.getRoll();                
+                atributeValues.add(EliteRolls.HIGHEEST_ROLL.getRoll());
+                atributeValues.add(EliteRolls.VERY_HIGH_ROLL.getRoll());
+                atributeValues.add(EliteRolls.HIGH_ROLL.getRoll());
+                atributeValues.add(EliteRolls.LOW_ROLL.getRoll());
+                atributeValues.add(EliteRolls.VERY_LOW_ROLL.getRoll());
+                atributeValues.add(EliteRolls.LOWEST_ROLL.getRoll());                
                 break;
             case "maxed":
-                highest = 18;
-                verHigh = 18;
-                high = 18;
-                low = 18;
-                veryLow = 18;
-                lowest = 18;
+                for (int i = 0; i < 6; i++) {
+                    atributeValues.add(18);
+                }
                 break;
             case "custom":
                 break;
             default:
-                highest = verHigh = high = 11; 
-                low = veryLow = lowest = 10;
+                 for (int i = 0; i < 3; i++) {
+                    atributeValues.add(11);
+                }
+                 for (int i = 0; i < 3; i++) {
+                    atributeValues.add(10);
+                }
         }
 
         if (className != null ) {
-            List<String> prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(className);
+            prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, className);
         } else {
-            //List<String> prioritizedAtributes = this.prioritizeAtributes(creature.type);
+            prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, creature.type);
+        }
+
+        for (int i = 0; i < 6; i++) {
+            assignedRolls.put(prioritizedAtributes.get(i), atributeValues.get(i));
         }
       
         creature.strength = assignedRolls.get("strength");

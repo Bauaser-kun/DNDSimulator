@@ -1,4 +1,4 @@
-package dnd.simulator.Creatures;
+package dnd.simulator.creatures;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -6,10 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import dnd.simulator.Creatures.supportCases.prioritizers.AtributesPrioritizer;
+import dnd.simulator.creatures.supportCases.prioritizers.AtributesPrioritizer;
 
-public class CreatureGeneratorTest {
+@SpringBootTest
+public class CreatureGeneratorTestSuite {
     CreatureGenerator generator = new CreatureGenerator();
     AtributesPrioritizer prioritizer = new AtributesPrioritizer();
 
