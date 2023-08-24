@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Random;
+import org.springframework.beans.factory.annotation.Autowired;
 import dnd.simulator.creatures.CharacterClass;
+import dnd.simulator.database.ClassRepository;
+
 public class AtributesPrioritizer {
-    public Map<String, Integer> generateBasicClassPriorities(String role) {
+    Random random = new Random();
+    @Autowired
+    private ClassRepository classRepository;
+    public Map<String, Integer> generateBasicRolesPriorities(String role) {
         Map<String, Integer> priorities = new HashMap<>();
             priorities.put("Strength", 0);
             priorities.put("Constitution", 0);
@@ -95,10 +101,23 @@ public class AtributesPrioritizer {
 
     public List<String> prioritizeAtributes(String role, String className) {
         List<String> prioritized = new ArrayList<String>(); 
-        CharacterClass characterClass;
-        Map<String, Integer> priorities = generateBasicClassPriorities(role);
+        Map<String, Integer> priorities = new HashMap<>();
+        CharacterClass characterClass = classRepository.findById(className).orElse(null);
+        priorities = generateBasicRolesPriorities(role); 
+       
+        if (characterClass != null) {
+            priorities = addPrioritiesForClass(priorities, characterClass);
+        }
 
         return prioritized;
     }
-    
+
+    private Map<String, Integer> addPrioritiesForClass(Map<String, Integer> priorities, CharacterClass characterClass) {
+        List<String> importantAtributes = characterClass.getImportantAtributes();
+        importantAtributes.forEach(atribute -> {
+            priorities.put(atribute, priorities.get(atribute) + 2);
+        });
+
+        return priorities;
+    }   
 }

@@ -9,6 +9,7 @@ import jakarta.persistence.Table;
 public class Creature {
     @Id
     String species;
+    
     String type;
     String subtype;
     String size;

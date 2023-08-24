@@ -35,7 +35,7 @@ public class CreatureGeneratorTestSuite {
         String role = "attacker";
         
         //When
-        Map<String,Integer> attackerMap = prioritizer.generateBasicClassPriorities(role);
+        Map<String,Integer> attackerMap = prioritizer.generateBasicRolesPriorities(role);
 
         //Then
         assertTrue(attackerMap.size() == 6);
