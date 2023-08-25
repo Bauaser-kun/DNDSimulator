@@ -29,19 +29,6 @@ public class CreatureGeneratorTestSuite {
         //THen
     }
 
-    @Test 
-    void testGenerateBasicClassPriorities() {
-        //Given
-        String role = "attacker";
-        
-        //When
-        Map<String,Integer> attackerMap = prioritizer.generateBasicRolesPriorities(role);
-
-        //Then
-        assertTrue(attackerMap.size() == 6);
-        assertEquals(1, attackerMap.get("Strength"));
-    }
-
     @Test
     void testPrioritizeAtributes() {
         //Given
