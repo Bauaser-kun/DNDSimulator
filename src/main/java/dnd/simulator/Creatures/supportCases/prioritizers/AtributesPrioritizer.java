@@ -1,19 +1,23 @@
 package dnd.simulator.creatures.supportCases.prioritizers;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import dnd.simulator.creatures.CharacterClass;
 import dnd.simulator.database.ClassRepository;
 
 @Service
+@Transactional
 public class AtributesPrioritizer {
     Random random = new Random();
 
@@ -107,6 +111,10 @@ public class AtributesPrioritizer {
     }
 
     public List<String> prioritizeAtributes(String role, String className) {
+        if (className == null) {
+            className = "noClass";
+        }
+        
         List<String> prioritized = new ArrayList<String>(); 
         Map<String, Integer> priorities = new HashMap<>();
         CharacterClass characterClass = classRepository.findById(className).orElse(null);
@@ -117,9 +125,9 @@ public class AtributesPrioritizer {
         }
 
         prioritized = priorities.entrySet().stream()
-        .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+        .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
         .map(Map.Entry::getKey)
-        .toList();
+        .collect(Collectors.toList());
 
         return prioritized;
     }

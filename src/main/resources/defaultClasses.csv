@@ -1,0 +1,3 @@
+"""noClass"",""defender attacker"",""false"",""Wisdom"",""false"",4,""Strength Constitution Dexterity Wisdom Intelligence Charisma"""
+"""fighter"",""defender attacker elusiveDefender"",""false"","""",""false"",10,""Strength Constitution Dexterity"""
+"""barbarian"",""attacker elusiveAttacker"",""false"",12,""Strength Constitution Dexterity"""
