@@ -1,6 +1,7 @@
 package dnd.simulator.database;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,8 +17,9 @@ public class DbInitialSetup {
     public boolean addClassesToDatabase(){
         boolean result = false;
 
-        try {  
-            BufferedReader reader = new BufferedReader(new FileReader("defaultClasses.csv"));
+        try { 
+            ClassLoader classLoader = getClass().getClassLoader(); 
+            BufferedReader reader = new BufferedReader(new FileReader(new File(classLoader.getResource("defaultClasses.csv").toURI())));
             String line = reader.readLine();
 
             while (line != null) {
@@ -31,7 +33,6 @@ public class DbInitialSetup {
         } catch (Exception e ) {
             System.out.println(e.getMessage());
         }
-
 
         return result;
     }
