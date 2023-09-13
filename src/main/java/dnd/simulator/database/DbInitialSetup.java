@@ -31,6 +31,7 @@ public class DbInitialSetup {
                 String[] atributes = line.split(",");
                 CharacterClass classToSave = createClassToSave(atributes);
                 repository.save(classToSave);
+                line = reader.readLine();
             }
 
             result = true;
