@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class AtributesPrioritizer {
     Random random = new Random();
 
     @Autowired
-    private ClassRepository classRepository;
+    ClassRepository classRepository;
     
     public Map<String, Integer> generateBasicRolesPriorities(String role) {
         Map<String, Integer> priorities = new HashMap<>();

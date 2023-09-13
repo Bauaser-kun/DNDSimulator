@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import dnd.simulator.creatures.CharacterClass;
 
-@Repository
 @Transactional
+@Repository
 public interface ClassRepository extends CrudRepository<CharacterClass, String> {
     Optional<CharacterClass> findById(String className);
 

@@ -5,14 +5,19 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import dnd.simulator.creatures.CharacterClass;
+import lombok.RequiredArgsConstructor;
 
+@Transactional
+@Service
+@RequiredArgsConstructor
 public class DbInitialSetup {
     @Autowired
-    private ClassRepository classRepository;
+    ClassRepository repository;
 
     public boolean addClassesToDatabase(){
         boolean result = false;
@@ -25,7 +30,7 @@ public class DbInitialSetup {
             while (line != null) {
                 String[] atributes = line.split(",");
                 CharacterClass classToSave = createClassToSave(atributes);
-                classRepository.save(classToSave);
+                repository.save(classToSave);
             }
 
             result = true;
