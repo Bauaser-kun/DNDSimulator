@@ -1,0 +1,8 @@
+# DNDSimulator
+This is my freetime project to practice multiple skills (mostly JAVA Web applications). 
+
+The goal of this project is to create UI for generating Dungeons and Dragons 3.5e charactes and encounters for provided input (single/multiple enemy, challange rating,  percentage chance of encountering (or count of encountered) above average or elite creatures etc.) So it should be able to generate a new hero/boss at set level, army of 2000 orcs with 1% chance of each being above average and a leader being level 10 barbarian or just random encounter for the plains that the party is currently going trough. I have no idea when this will be finished, but I try to work on it at least 1 hour each day.
+
+Secondary goal is to make it into actual battle simulator that will run the encounter between two sides consisting of selected parties.
+
+If you are potential recruiter feel free to use it to see my progress with skills :)
