@@ -11,6 +11,6 @@ public class DNDSimulatorApplication {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(DNDSimulatorApplication.class, args);
 		DbInitialSetup initialSetup = applicationContext.getBean(DbInitialSetup.class);
-		initialSetup.addClassesToDatabase();
+		initialSetup.addClassesToDatabase("defaultClasses.csv");
 	}
 }

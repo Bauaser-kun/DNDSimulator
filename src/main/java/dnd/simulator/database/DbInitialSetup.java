@@ -19,12 +19,12 @@ public class DbInitialSetup {
     @Autowired
     ClassRepository repository;
 
-    public boolean addClassesToDatabase(){
+    public boolean addClassesToDatabase(String filename){
         boolean result = false;
 
         try { 
             ClassLoader classLoader = getClass().getClassLoader(); 
-            BufferedReader reader = new BufferedReader(new FileReader(new File(classLoader.getResource("defaultClasses.csv").toURI())));
+            BufferedReader reader = new BufferedReader(new FileReader(new File(classLoader.getResource(filename).toURI())));
             String line = reader.readLine();
 
             while (line != null) {

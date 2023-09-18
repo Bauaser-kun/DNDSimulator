@@ -36,11 +36,9 @@ public class AtributesPrioritizerTestSuite {
 
         //When
         List<String> defenderAtributes = prioritizer.prioritizeAtributes(role, null);
-        defenderAtributes.forEach(atribute ->{ 
-            System.out.println(atribute);
-        });
         
         //Then
         assertEquals("Constitution", defenderAtributes.get(0));
+        assertEquals(6, defenderAtributes.size());
     }
 }
