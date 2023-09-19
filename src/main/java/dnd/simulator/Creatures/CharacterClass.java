@@ -6,12 +6,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "classes")
 public class CharacterClass {
-    public CharacterClass() {}
-
     @Id
     @Column(name = "class")
     public String className;
@@ -34,16 +36,8 @@ public class CharacterClass {
     @Column(name = "hit Dice")
     public int hitDice;
 
-    public CharacterClass(String className, ArrayList<String> roles, boolean isSpellcaster, String spellAtribute,
-            boolean hasLimitedSpellsCount, int hitDice, ArrayList<String> importantAtributes) {
-        this.className = className;
-        this.roles = roles;
-        this.isSpellcaster = isSpellcaster;
-        this.spellAtribute = spellAtribute;
-        this.hasLimitedSpellsCount = hasLimitedSpellsCount;
-        this.hitDice = hitDice;
-        this.importantAtributes = importantAtributes;
-    }
+    @Column(name = "type")
+    public String classType;
 
     public String getClassName() {
         return className;
@@ -71,5 +65,41 @@ public class CharacterClass {
 
     public int getHitDice() {
         return hitDice;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public void setRoles(ArrayList<String> roles) {
+        this.roles = roles;
+    }
+
+    public void setImportantAtributes(ArrayList<String> importantAtributes) {
+        this.importantAtributes = importantAtributes;
+    }
+
+    public void setSpellcaster(boolean isSpellcaster) {
+        this.isSpellcaster = isSpellcaster;
+    }
+
+    public void setSpellAtribute(String spellAtribute) {
+        this.spellAtribute = spellAtribute;
+    }
+
+    public void setHasLimitedSpellsCount(boolean hasLimitedSpellsCount) {
+        this.hasLimitedSpellsCount = hasLimitedSpellsCount;
+    }
+
+    public void setHitDice(int hitDice) {
+        this.hitDice = hitDice;
+    }
+
+    public String getClassType() {
+        return classType;
+    }
+
+    public void setClassType(String classType) {
+        this.classType = classType;
     }
 }

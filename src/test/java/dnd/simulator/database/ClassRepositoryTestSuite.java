@@ -21,7 +21,7 @@ public class ClassRepositoryTestSuite {
         ArrayList<String> roles = new ArrayList<>(
             List.of("attacker", "defender", "elusive defender", "long range", "reckless attacker", "dexterious attacker"));
 
-        CharacterClass fighter = new CharacterClass("fighter", roles, false, "Nothing", false, 10, new ArrayList<>());
+        CharacterClass fighter = new CharacterClass("fighter", roles, new ArrayList<>(), false, "Nothing", false, 10, "basic");
 
         //When
         classRepository.save(fighter);

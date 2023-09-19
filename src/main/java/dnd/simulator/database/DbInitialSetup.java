@@ -46,12 +46,13 @@ public class DbInitialSetup {
     private CharacterClass createClassToSave(String[] atributes) {
         String className = atributes[0];
         ArrayList<String> roles = new ArrayList<String>(Arrays.asList(atributes[1].split(" ")));
-        boolean isSpellcaster = Boolean.valueOf(atributes[2]);
-        String spellAtribute = atributes[3];
-        boolean hasLimitedSpellsCount = Boolean.valueOf(atributes[4]);
-        int hitDice = Integer.valueOf(atributes[5]);
-        ArrayList<String> importantAtributes = new ArrayList<String>(Arrays.asList(atributes[6].split(" ")));
+        ArrayList<String> importantAtributes = new ArrayList<String>(Arrays.asList(atributes[2].split(" ")));
+        boolean isSpellcaster = Boolean.valueOf(atributes[3]);
+        String spellAtribute = atributes[4];
+        boolean hasLimitedSpellsCount = Boolean.valueOf(atributes[5]);
+        int hitDice = Integer.valueOf(atributes[6]);
+        String classType = atributes[7];
         
-        return new CharacterClass(className, roles, isSpellcaster, spellAtribute, hasLimitedSpellsCount, hitDice, importantAtributes);
+        return new CharacterClass(className, roles, importantAtributes, isSpellcaster, spellAtribute, hasLimitedSpellsCount, hitDice, classType);
     }
 }
