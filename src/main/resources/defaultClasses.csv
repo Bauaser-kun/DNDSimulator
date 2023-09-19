@@ -1,12 +1,12 @@
-noClass,defender attacker,false,Wisdom,false,4,Strength Constitution Dexterity Wisdom Intelligence Charisma
-fighter,defender attacker elusiveDefender,false,Wisdom,false,10,Strength Constitution Dexterity
-barbarian,attacker elusiveAttacker,false,Wisdom,false,12,Strength Constitution Dexterity
-bard,stealth supportSorcerrer,true,Charisma,false,6,Strength Constitution Dexterity
-monk,attacker elusiveAttacker,false,Wisdom,false,8,Strength Constitution Dexterity Wisdom
-paladin,defender attacker elusiveAttacker elusiveDefender,true,Wisdom,false,10,Strength Constitution Dexterity Wisdom Charisma
-cleric,wiseHealer undeadHealer recklessHealer debuffHealer,true,Wisdom,false,8, Constitution Wisdom Charisma
-druid,wiseHealer undeadHealer recklessHealer debuffHealer,true,Wisdom,false,8,Strength Constitution Wisdom
-ranger,longRange attacker elusiveAttacker stealth,true,Wisdom,false,8, Constitution Dexterity Wisdom
-rogue,stealth,false,Charisma,false,6,Constitution Dexterity Intelligence Charisma
-sorcerer,artillerySorcerer debuffSorcerer supportSorcery,true,Charisma,true,4,Constitution Dexterity Charisma
-wizard,artilleryMage debuffMage supportMage,true,Intelligence,true,4,Constitution Dexterity Intelligence
+noClass,defender attacker,Strength Constitution Dexterity Wisdom Intelligence Charisma,false,Wisdom,false,4,basic
+fighter,defender attacker elusiveDefender,Strength Constitution Dexterity,false,Wisdom,false,10,basic
+barbarian,attacker elusiveAttacker,Strength Constitution Dexterity,false,Wisdom,false,12,basic
+bard,stealth supportSorcerrer,Strength Constitution Dexterity,true,Charisma,false,6,basic
+monk,attacker elusiveAttacker,Strength Constitution Dexterity Wisdom,false,Wisdom,false,8,basic
+paladin,defender attacker elusiveAttacker elusiveDefender,Strength Constitution Dexterity Wisdom Charisma,true,Wisdom,false,10,basic
+cleric,wiseHealer undeadHealer recklessHealer debuffHealer,Constitution Wisdom Charisma,true,Wisdom,false,8,basic
+druid,wiseHealer undeadHealer recklessHealer debuffHealer,Strength Constitution Wisdom,true,Wisdom,false,8,basic
+ranger,longRange attacker elusiveAttacker stealth,Constitution Dexterity Wisdom,true,Wisdom,false,8,basic
+rogue,stealth,Constitution Dexterity Intelligence Charisma,false,Charisma,false,6,basic
+sorcerer,artillerySorcerer debuffSorcerer supportSorcery,Constitution Dexterity Charisma,true,Charisma,true,4,basic
+wizard,artilleryMage debuffMage supportMage,Constitution Dexterity Intelligence,true,Intelligence,true,4,basic
