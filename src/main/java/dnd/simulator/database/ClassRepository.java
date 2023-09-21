@@ -7,12 +7,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import dnd.simulator.creatures.CharacterClass;
+import dnd.simulator.creatures.characterClasses.CharacterClass;
 
 @Transactional
 @Repository
 public interface ClassRepository extends CrudRepository<CharacterClass, String> {
+    List<CharacterClass> findAll();
     Optional<CharacterClass> findById(String className);
-
     List<CharacterClass> findByIsSpellcaster(boolean isSpellcaster);
 }

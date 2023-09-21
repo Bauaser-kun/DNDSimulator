@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dnd.simulator.creatures.CharacterClass;
+import dnd.simulator.creatures.characterClasses.CharacterClass;
 import dnd.simulator.database.ClassRepository;
 
 @Service

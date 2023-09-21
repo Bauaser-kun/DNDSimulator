@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dnd.simulator.creatures.CharacterClass;
+import dnd.simulator.creatures.characterClasses.CharacterClass;
 import lombok.RequiredArgsConstructor;
 
 @Transactional
@@ -52,6 +52,6 @@ public class DbInitialSetup {
         int hitDice = Integer.valueOf(atributes[5]);
         ArrayList<String> importantAtributes = new ArrayList<String>(Arrays.asList(atributes[6].split(" ")));
         
-        return new CharacterClass(className, roles, isSpellcaster, spellAtribute, hasLimitedSpellsCount, hitDice, importantAtributes);
+        return new CharacterClass(className, roles, importantAtributes, isSpellcaster, spellAtribute, hasLimitedSpellsCount, hitDice);
     }
 }
