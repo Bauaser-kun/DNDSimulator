@@ -143,25 +143,25 @@ public class AtributesPrioritizer {
     }
 
     private Map<String, Integer> removeNoAbilityScoresFromPriorities(Map<String, Integer> priorities, String creatureType, String creatureSubtype) {
-        switch (creatureType) {
-            case "Construct":
+        switch (creatureType.toLowerCase()) {
+            case "construct":
                 priorities.remove("Constitution");
                 break;
-            case "Ooze":
+            case "ooze":
                 priorities.remove("Intelligence");
                 break;
-            case "Undead":
+            case "undead":
                 priorities.remove("Constitution");
                 break;
-            case "Vermin":
+            case "vermin":
                 priorities.remove("Intelligence");
                 break;
             default:
                 break;
         }
 
-        switch (creatureType) {
-            case "Incorporeal":
+        switch (creatureSubtype.toLowerCase()) {
+            case "incorporeal":
                 priorities.remove("Strength");
                 break;
             default:
