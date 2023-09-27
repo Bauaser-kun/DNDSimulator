@@ -109,19 +109,30 @@ public class AtributesPrioritizer {
         return priorities;
     }
 
-    public List<String> prioritizeAtributes(String role, String className) {
+    public List<String> prioritizeAtributes(String role, String className, String creatureType, String creatureSubtype) {
         if (className == null) {
             className = "noClass";
+        }
+
+        if (creatureType == null) {
+            creatureType = "noTypeSelected";
+        }
+
+        if (creatureSubtype == null ) {
+            creatureSubtype = "noSubtypeSelected";
         }
         
         List<String> prioritized = new ArrayList<String>(); 
         Map<String, Integer> priorities = new HashMap<>();
         CharacterClass characterClass = classRepository.findById(className).orElse(null);
         priorities = generateBasicRolesPriorities(role); 
-       
+
+             
         if (characterClass != null) {
             priorities = addPrioritiesForClass(priorities, characterClass);
         }
+
+        priorities = removeNoAbilityScoresFromPriorities(priorities, creatureType, creatureSubtype);
 
         prioritized = priorities.entrySet().stream()
         .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
@@ -129,6 +140,35 @@ public class AtributesPrioritizer {
         .collect(Collectors.toList());
 
         return prioritized;
+    }
+
+    private Map<String, Integer> removeNoAbilityScoresFromPriorities(Map<String, Integer> priorities, String creatureType, String creatureSubtype) {
+        switch (creatureType) {
+            case "Construct":
+                priorities.remove("Constitution");
+                break;
+            case "Ooze":
+                priorities.remove("Intelligence");
+                break;
+            case "Undead":
+                priorities.remove("Constitution");
+                break;
+            case "Vermin":
+                priorities.remove("Intelligence");
+                break;
+            default:
+                break;
+        }
+
+        switch (creatureType) {
+            case "Incorporeal":
+                priorities.remove("Strength");
+                break;
+            default:
+                break;
+        }
+
+        return priorities;
     }
 
     private Map<String, Integer> addPrioritiesForClass(Map<String, Integer> priorities, CharacterClass characterClass) {

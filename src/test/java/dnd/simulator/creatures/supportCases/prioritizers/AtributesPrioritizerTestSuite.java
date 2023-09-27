@@ -35,7 +35,7 @@ public class AtributesPrioritizerTestSuite {
         String role = "defender";
 
         //When
-        List<String> defenderAtributes = prioritizer.prioritizeAtributes(role, null);
+        List<String> defenderAtributes = prioritizer.prioritizeAtributes(role, null, "dragon", "fire");
         
         //Then
         assertEquals("Constitution", defenderAtributes.get(0));

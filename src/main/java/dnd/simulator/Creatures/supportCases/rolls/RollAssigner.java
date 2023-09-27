@@ -65,13 +65,9 @@ public class RollAssigner {
                 }
         }
 
-        if (className != null ) {
-            prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, className);
-        } else {
-            prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, creature.getType());
-        }
+            prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, creature.getCharacterClass(), creature.getType(), creature.getSubtype());
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i <= prioritizedAtributes.size(); i++) {
             assignedRolls.put(prioritizedAtributes.get(i), atributeValues.get(i));
         }
       
