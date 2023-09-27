@@ -2,6 +2,7 @@ package dnd.simulator.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/classes")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class CharacterClassControler {
     private final DBService dbService;
     private final CharacterClassMapper classMapper;
