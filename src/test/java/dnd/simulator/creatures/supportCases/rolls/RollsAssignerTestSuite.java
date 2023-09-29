@@ -20,7 +20,7 @@ public class RollsAssignerTestSuite {
         Creature creature = new Creature();
 
         //When
-        creature = rollAssigner.assignRolls(creature, null, "maxed", null);
+        creature = rollAssigner.assignRolls(creature, null, "maxed", "defender");
 
         //Then
         assertEquals(18, creature.getStrength());
@@ -35,14 +35,12 @@ public class RollsAssignerTestSuite {
     @Test
     void shouldAssignOnlyFourAtributesForIncorporalUndead(){
         //Given
-        Creature ghost = new Creature("ghost", "undead", "incorporal", "medium", 30, "noClass", 0, 0, 0, 0, 0, 0);
+        Creature ghost = new Creature("ghost", "undead", "incorporeal", "medium", 30, "noClass", 0, 0, 0, 0, 0, 0);
         
         //When
         ghost = rollAssigner.assignRolls(ghost, ghost.getCharacterClass(), "maxed", "defender");
 
         //Then
-        System.out.println("strength: " + ghost.getStrength() + "\n Dexterity: " + ghost.getDexterity() + "\n Constitution: " + ghost.getConstitution()
-            + "\n Intelligence: " + ghost.getIntelligence() + "\n Wisdom: " + ghost.getWisdom() + "\n Charisma: " + ghost.getCharisma());
         assertNull(ghost.getStrength());
         assertNull(ghost.getConstitution());
         assertEquals(18, ghost.getDexterity());

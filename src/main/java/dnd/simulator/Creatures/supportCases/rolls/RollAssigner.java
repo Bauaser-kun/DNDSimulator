@@ -24,12 +24,12 @@ public class RollAssigner {
         List<String> prioritizedAtributes = new ArrayList<>();
         
         Map<String, Integer> assignedRolls = new HashMap<>();
-        assignedRolls.put("strength", null);
-        assignedRolls.put("constitution", null);
-        assignedRolls.put("dexterity", null);
-        assignedRolls.put("intelligence", null);
-        assignedRolls.put("wisdom", null);
-        assignedRolls.put("charisma", null);
+        assignedRolls.put("Strength", null);
+        assignedRolls.put("Constitution", null);
+        assignedRolls.put("Dexterity", null);
+        assignedRolls.put("Intelligence", null);
+        assignedRolls.put("Wisdom", null);
+        assignedRolls.put("Charisma", null);
 
         switch (rollsUsed) {
             case "basic": 
@@ -78,12 +78,12 @@ public class RollAssigner {
             assignedRolls.put(prioritizedAtributes.get(i), atributeValues.get(i));
         }
       
-        creature.setStrength(assignedRolls.get("strength"));
-        creature.setConstitution(assignedRolls.get("constitution"));
-        creature.setDexterity(assignedRolls.get("dexterity"));
-        creature.setIntelligence(assignedRolls.get("intelligence"));
-        creature.setWisdom(assignedRolls.get("wisdom"));
-        creature.setCharisma(assignedRolls.get("charisma"));
+        creature.setStrength(assignedRolls.get("Strength"));
+        creature.setConstitution(assignedRolls.get("Constitution"));
+        creature.setDexterity(assignedRolls.get("Dexterity"));
+        creature.setIntelligence(assignedRolls.get("Intelligence"));
+        creature.setWisdom(assignedRolls.get("Wisdom"));
+        creature.setCharisma(assignedRolls.get("Charisma"));
 
         return creature;
     }
