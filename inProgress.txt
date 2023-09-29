@@ -1,0 +1,5 @@
+branch: rollAssigner
+initial implementation of atributes prioritizer and roll Assigner done, writing Unit tests.
+
+branch: UI
+initial draft for UI - button to pull all classes from databases into UI table (stucked with CORS issue, postman returns JSON properly from database)
