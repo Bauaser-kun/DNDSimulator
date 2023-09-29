@@ -5,11 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import dnd.simulator.creatures.Creature;
 import dnd.simulator.creatures.supportCases.prioritizers.AtributesPrioritizer;
 import io.micrometer.common.lang.Nullable;
 
+@Service
+@Transactional
 public class RollAssigner {
+    @Autowired
     AtributesPrioritizer atributesPrioritizer = new AtributesPrioritizer();
 
     public Creature assignRolls(Creature creature, @Nullable String className, String rollsUsed, String role) {
@@ -67,7 +74,7 @@ public class RollAssigner {
 
             prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, creature.getCharacterClass(), creature.getType(), creature.getSubtype());
 
-        for (int i = 0; i <= prioritizedAtributes.size(); i++) {
+        for (int i = 0; i < prioritizedAtributes.size(); i++) {
             assignedRolls.put(prioritizedAtributes.get(i), atributeValues.get(i));
         }
       
