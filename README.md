@@ -10,6 +10,5 @@ Everything may help the project (and me) grow :)
 
 If you are potential recruiter feel free to use it to see my progress with skills :)
 
-
 current version 0.0.0.2
 initial versions of atributes prioritizer and rollAssigner working and tested. 
