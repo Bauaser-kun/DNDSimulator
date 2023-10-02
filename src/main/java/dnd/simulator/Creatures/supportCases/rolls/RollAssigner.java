@@ -31,6 +31,10 @@ public class RollAssigner {
         assignedRolls.put("Wisdom", null);
         assignedRolls.put("Charisma", null);
 
+        if (rollsUsed == null) {
+            rollsUsed = "null!";
+        }
+
         switch (rollsUsed) {
             case "basic": 
                 atributeValues.add(BasicRolls.HIGHEEST_ROLL.getRoll());
@@ -72,7 +76,11 @@ public class RollAssigner {
                 }
         }
 
-            prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, creature.getCharacterClass(), creature.getType(), creature.getSubtype());
+        if (role == null) {
+            role = "noRole";
+        }
+        
+        prioritizedAtributes = atributesPrioritizer.prioritizeAtributes(role, creature.getCharacterClass(), creature.getType(), creature.getSubtype());
 
         for (int i = 0; i < prioritizedAtributes.size(); i++) {
             assignedRolls.put(prioritizedAtributes.get(i), atributeValues.get(i));
