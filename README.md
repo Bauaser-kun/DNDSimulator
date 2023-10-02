@@ -5,10 +5,11 @@ The goal of this project is to create UI for generating Dungeons and Dragons 3.5
 
 Secondary goal is to make it into actual battle simulator that will run the encounter between two sides consisting of selected parties.
 
-If you want to contribute please feel free to comment the code or tasks for the project available here: https://bauaserkuns-team.monday.com/boards/1271528012/views/6720207 
+If you want to contribute please feel free to comment the code or tasks for the project
 Everything may help the project (and me) grow :)
 
 If you are potential recruiter feel free to use it to see my progress with skills :)
 
 
-current version 0.0.0.1 - database setting, basic classes in resource file. For more details please view CHANGELOG.
+current version 0.0.0.2
+initial versions of atributes prioritizer and rollAssigner working and tested. 
