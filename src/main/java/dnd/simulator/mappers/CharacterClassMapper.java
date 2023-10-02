@@ -18,7 +18,8 @@ public class CharacterClassMapper {
             characterClassDto.isSpellcaster(),
             characterClassDto.getSpellAtribute(),
             characterClassDto.isHasLimitedSpellsCount(),
-            characterClassDto.getHitDice());
+            characterClassDto.getHitDice(),
+            characterClassDto.getClassType());
     }
 
     public CharacterClassDto mapToClassDto(final CharacterClass characterClass) {
@@ -29,7 +30,8 @@ public class CharacterClassMapper {
             characterClass.isSpellcaster(),
             characterClass.getSpellAtribute(),
             characterClass.isHasLimitedSpellsCount(),
-            characterClass.getHitDice());
+            characterClass.getHitDice(),
+            characterClass.getClassType());
     }
 
     public List<CharacterClassDto> mapToTaskDtoList(final List<CharacterClass> classList) {
