@@ -1,2 +1,3 @@
 branch: UI
-initial draft for UI - button to pull all classes from databases into UI table (stucked with CORS issue, postman returns JSON properly from database)
+initial draft for UI, button to pull all classes from databases into UI table done
+working on CSS
