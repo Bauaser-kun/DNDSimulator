@@ -23,4 +23,6 @@ public class CharacterClassDto {
     public boolean hasLimitedSpellsCount;
 
     public int hitDice;
+
+    public String classType;
 }
