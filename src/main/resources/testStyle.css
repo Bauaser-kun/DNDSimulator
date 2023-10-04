@@ -2,6 +2,22 @@ body {
     background-color: grey;
 }
 
-p1 {
+h1 {
     text-align: center;
+}
+
+p.p1 {
+    text-align: center;
+    color: red;
+}
+
+thead.classTableHeader {
+    color: blueviolet;
+    border: brown;
+    border-width: 10vw;
+}
+
+thead.classTableHeader.tr {
+    border-width: 3vw;
+    border-color: aqua;
 }
