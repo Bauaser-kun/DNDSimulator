@@ -13,11 +13,21 @@ p.p1 {
 
 thead.classTableHeader {
     color: blueviolet;
-    border: brown;
-    border-width: 10vw;
 }
 
-thead.classTableHeader.tr {
+th.classHeaderCell {
+    border: solid;
+    border-width: 1px;
+    border-color: aqua;
+}
+
+td.classRowCell {
+    border: solid;
+    border-color:  saddlebrown;
+}
+
+thead.classTableHeader.th {
+    border: solid;
     border-width: 3vw;
     border-color: aqua;
 }

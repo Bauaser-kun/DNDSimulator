@@ -12,6 +12,7 @@ async function populateTableWithPulledData(url, table) {
     //Assign headers
     for (const column of columns) {
         const headerElement = document.createElement("th");
+        headerElement.className = "classHeaderCell";
         headerElement.textContent = column;
         tableHead.querySelector("tr").appendChild(headerElement);
     }
@@ -24,6 +25,7 @@ async function populateTableWithPulledData(url, table) {
         //assign cells
         for (const cell of row) {
             const cellElement = document.createElement("td");
+            cellElement.className = "classRowCell"; 
             cellElement.textContent = cell;
             bodyRow.appendChild(cellElement);
         }
@@ -35,3 +37,5 @@ async function populateTableWithPulledData(url, table) {
 function getAllClasses() {
     populateTableWithPulledData('http://localhost:8079/classes/getCharacterClasses', document.querySelector("table"));
 }
+
+getAllClasses();
