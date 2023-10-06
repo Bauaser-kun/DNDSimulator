@@ -5,7 +5,7 @@ The goal of this project is to create UI for generating Dungeons and Dragons 3.5
 
 Secondary goal is to make it into actual battle simulator that will run the encounter between two sides consisting of selected parties.
 
-If you want to contribute please feel free to comment the code or tasks for the project
+If you want to contribute please feel free to comment the code or tasks for the project (check changelog, inProgress file. View other branches than master)
 Everything may help the project (and me) grow :)
 
 If you are potential recruiter feel free to use it to see my progress with skills :)
