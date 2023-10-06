@@ -1,2 +1,33 @@
++ sign next to row means this is done and ready to merge on the branch (maybe expanded before branch merge), but not yet merged into master
+- sign next to row means this is planned to be done or in progress before the branch will be merged
+/ sign next to row means this is planned to be done or in progress but may be finsihed in next merge instead of the next one
+! next to row means that more research is needed and it may be finished in next branch merge instead of the closest one.
+!- next to row means that research is needed AND the feature needs to be included in the next merge (spell: I'm stucked for now)
+
 branch: UI
-initial draft for UI - button to pull all classes from databases into UI table (stucked with CORS issue, postman returns JSON properly from database)
++ initial draft for UI, button to pull all classes from databases into UI table done
+- CSS for class table
+- CSS for bacground and site header
+! modyfing background into brick-like pattern
+
+branch: specialAbilities
++ special abilities and DTO initialy implemented
+- database service and repository
+- mapper
+- controller initial implementation
+/ CSV file containing special abilities
+
+branch: feats
++ feat and DTO initialy implemented
+- database service and repository
+- mapper
+- controller initial implementation
+/ prerequesites reader - method to confirm if creature can attain the feat or if it is innaccessible for it.
+/ CSV file containing feats
+
+branch: speciesOrRace
++ race and DTO initialy implemented
+- database service and repository
+- mapper
+- controller initial implementation
+/ CSV file containing races and monststers
