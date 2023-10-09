@@ -15,4 +15,6 @@ public interface ClassRepository extends CrudRepository<CharacterClass, String> 
     Optional<CharacterClass> findById(String className);
 
     List<CharacterClass> findByIsSpellcaster(boolean isSpellcaster);
+
+    List<CharacterClass> findBySpellAtribute(String spellAtribute);
 }
