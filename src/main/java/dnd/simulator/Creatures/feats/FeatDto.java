@@ -14,10 +14,16 @@ import lombok.Setter;
 @Setter
 public class FeatDto {
     public String featName;
+    
+    public String type;
 
     public ArrayList<String> prerequesites;
 
-    public String description;
+    public String benefit;
+
+    public String normal;
+
+    public String special;
 
     public int maxCount;
 

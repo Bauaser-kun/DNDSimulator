@@ -9,4 +9,5 @@ import lombok.RequiredArgsConstructor;
 public class DBService {
     private final ClassRepository classRepository;
 
+    private final FeatsRepository featsRepository;
 }
