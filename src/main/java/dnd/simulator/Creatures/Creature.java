@@ -1,5 +1,8 @@
 package dnd.simulator.creatures;
 
+import java.util.ArrayList;
+
+import dnd.simulator.creatures.feats.Feat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -27,6 +30,15 @@ public class Creature {
     private Integer intelligence;
     private Integer wisdom;
     private Integer charisma;
+    private ArrayList<Feat> feats;
+
+    public ArrayList<Feat> getFeats() {
+        return feats;
+    }
+
+    public void setFeats(ArrayList<Feat> feats) {
+        this.feats = feats;
+    }
 
     public String getSpecies() {
         return species;
