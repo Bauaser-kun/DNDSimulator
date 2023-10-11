@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DbInitialSetup {
     @Autowired
-    ClassRepository repository;
+    ClassRepository classRepository;
 
     public boolean addClassesToDatabase(String filename){
         boolean result = false;
@@ -30,7 +30,7 @@ public class DbInitialSetup {
             while (line != null) {
                 String[] atributes = line.split(",");
                 CharacterClass classToSave = createClassToSave(atributes);
-                repository.save(classToSave);
+                classRepository.save(classToSave);
                 line = reader.readLine();
             }
 

@@ -21,11 +21,20 @@ public class Feat {
     @Column(name = "feat")
     public String featName;
 
+    @Column(name = "featType")
+    public String type;
+
     @Column(name = "prerequesites")
     public ArrayList<String> prerequesites;
 
-    @Column(name = "description")
-    public String description;
+    @Column(name = "benefit")
+    public String benefit;
+
+    @Column(name = "normal")
+    public String normal;
+
+    @Column(name = "special")
+    public String special;
 
     @Column(name = "max aquired count")
     public int maxCount;
