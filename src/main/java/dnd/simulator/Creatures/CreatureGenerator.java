@@ -18,11 +18,7 @@ public class CreatureGenerator {
         creature.setCharacterClass(stringProperties.get("className"));
 
         creature = assigner.assignRolls(creature, creature.getCharacterClass(), rollsUsed, role);
-        
-        feats.forEach(feat -> {
-            creature = assigner.assignFeat(creature, feat);
-        });
-        
+        creature = assigner.assignFeats(creature, feats);
 
         return creature;
     }

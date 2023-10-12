@@ -18,11 +18,14 @@ public class Assigner {
     @Autowired
     RollAssigner rollAssigner;
 
+    @Autowired
+    FeatAssigner featAssigner;
+
     public Creature assignRolls(Creature creature, @Nullable String className, String rollsUsed, String role) {
         return rollAssigner.assignRolls(creature, className, rollsUsed, role);
     }
 
     public Creature assignFeats(Creature creature, List<Feat> feats) {
-        return creature;
+        return featAssigner.assignFeats(creature, feats);
     }
 }
