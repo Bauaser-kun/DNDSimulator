@@ -25,7 +25,7 @@ public class Feat {
     public String type;
 
     @Column(name = "prerequesites")
-    public ArrayList<String> prerequesites;
+    public FeatPrerequesite prerequesites;
 
     @Column(name = "benefit")
     public String benefit;

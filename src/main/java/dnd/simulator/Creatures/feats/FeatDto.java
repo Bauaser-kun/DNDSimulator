@@ -17,7 +17,7 @@ public class FeatDto {
     
     public String type;
 
-    public ArrayList<String> prerequesites;
+    public FeatPrerequesite prerequesites;
 
     public String benefit;
 
