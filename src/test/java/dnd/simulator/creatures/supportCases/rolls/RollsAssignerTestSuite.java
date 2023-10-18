@@ -131,7 +131,7 @@ public class RollsAssignerTestSuite {
     @Test
     void shouldAssignOnlyFourAtributesForIncorporalUndead(){
         //Given
-        Creature ghost = new Creature("ghost", "undead", "incorporeal", "medium", 30, "noClass", 0, 0, 0, 0, 0, 0, new ArrayList<Feat>());
+        Creature ghost = new Creature("ghost", "undead", "incorporeal", "medium", 30, "noClass", 0, 0, 0, 0, 0, 0, new ArrayList<Feat>(), 0);
         
         //When
         ghost = rollAssigner.assignRolls(ghost, ghost.getCharacterClass(), "maxed", "defender");

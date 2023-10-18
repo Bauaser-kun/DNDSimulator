@@ -2,13 +2,15 @@ package dnd.simulator.creatures.supportCases;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import dnd.simulator.creatures.Creature;
 import dnd.simulator.creatures.feats.Feat;
-import dnd.simulator.creatures.feats.FeatPrerequesite;
+import dnd.simulator.creatures.feats.FeatPrerequisite;
+import dnd.simulator.creatures.skills.Skill;
 
 @Service
 @Transactional
@@ -27,17 +29,30 @@ public class FeatAssigner {
     }
 
     private boolean checkPrerequesites(Creature creature, Feat feat) {
-        FeatPrerequesite prerequesite = feat.getPrerequesites();
+        FeatPrerequisite prerequisite = feat.getPrerequesites();
         List<String> creatureFeats = creature.getFeats().stream().map(Feat::getFeatName).toList();
+        List<Skill> creatureSkills = creature.getSkills();
         boolean enoughAtributeScore = true;
-        boolean allFeatsIncluded = creatureFeats.containsAll(prerequesite.getFeats());
+        boolean allFeatsIncluded = creatureFeats.containsAll(prerequisite.getFeats());
+        boolean baseAttackHighEnough = (prerequisite.getBaseAttack() <= creature.getBaseAttack());
+        boolean allSkillsRankHighEnough = true;
 
-        if (creature.getStrength() < prerequesite.getStrength() || creature.getDexterity() < prerequesite.getDexterity() ||
-            creature.getConstitution() < prerequesite.getConstitution() || creature.getIntelligence() < prerequesite.getIntelligence() ||
-            creature.getWisdom() < prerequesite.getWisdom() || creature.getCharisma() < prerequesite.getCharisma()) {
+        if (creature.getStrength() < prerequisite.getStrength() || creature.getDexterity() < prerequisite.getDexterity() ||
+            creature.getConstitution() < prerequisite.getConstitution() || creature.getIntelligence() < prerequisite.getIntelligence() ||
+            creature.getWisdom() < prerequisite.getWisdom() || creature.getCharisma() < prerequisite.getCharisma()) {
                 enoughAtributeScore = false;
             }
+        
+        prerequisite.getSkills().forEach(requiredSkill -> {
+            int index = IntStream.range(0, creatureSkills.size())
+                .filter(i -> creatureSkills.get(i).getSkillName() == requiredSkill.getSkillName())
+                .findFirst().getAsInt();
+
+            if (creatureSkills.get(index).getRank() < requiredSkill.getRank()) {
+                allSkillsRankHighEnough = false;
+            }
+        });
                 
-        return enoughAtributeScore && allFeatsIncluded;
+        return enoughAtributeScore && allFeatsIncluded && baseAttackHighEnough && allSkillsRankHighEnough;
     }
 }

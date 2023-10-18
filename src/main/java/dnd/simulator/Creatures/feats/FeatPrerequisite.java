@@ -7,10 +7,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import dnd.simulator.creatures.skills.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
-public class FeatPrerequesite {
+public class FeatPrerequisite {
     private Integer strength;
     private Integer dexterity;
     private Integer constitution;
@@ -18,6 +20,7 @@ public class FeatPrerequesite {
     private Integer wisdom;
     private Integer charisma;
     private ArrayList<String> feats;
-    private Map<String, Integer> skills;
     private String special;
+    private int baseAttack;
+    private ArrayList<Skill> skills;
 }

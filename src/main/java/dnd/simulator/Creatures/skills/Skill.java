@@ -1,4 +1,4 @@
-package dnd.simulator.creatures.supportCases.skills;
+package dnd.simulator.creatures.skills;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
