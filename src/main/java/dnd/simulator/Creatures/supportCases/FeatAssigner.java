@@ -29,13 +29,13 @@ public class FeatAssigner {
     private boolean checkPrerequesites(Creature creature, Feat feat) {
         FeatPrerequesite prerequesite = feat.getPrerequesites();
         List<String> creatureFeats = creature.getFeats().stream().map(Feat::getFeatName).toList();
-        boolean enoughAtributeScore = false;
+        boolean enoughAtributeScore = true;
         boolean allFeatsIncluded = creatureFeats.containsAll(prerequesite.getFeats());
 
         if (creature.getStrength() < prerequesite.getStrength() || creature.getDexterity() < prerequesite.getDexterity() ||
             creature.getConstitution() < prerequesite.getConstitution() || creature.getIntelligence() < prerequesite.getIntelligence() ||
             creature.getWisdom() < prerequesite.getWisdom() || creature.getCharisma() < prerequesite.getCharisma()) {
-                enoughAtributeScore = true;
+                enoughAtributeScore = false;
             }
                 
         return enoughAtributeScore && allFeatsIncluded;
