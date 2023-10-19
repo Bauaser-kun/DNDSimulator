@@ -1,9 +1,11 @@
 package dnd.simulator.creatures;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dnd.simulator.creatures.feats.Feat;
 import dnd.simulator.creatures.skills.Skill;
+import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -38,4 +40,5 @@ public class Creature {
     private ArrayList<Feat> feats;
     private int baseAttack;
     private ArrayList<Skill> skills;
+    private HashMap<String, Integer> classLevels;
 }

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -14,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import dnd.simulator.creatures.Creature;
 import dnd.simulator.creatures.feats.Feat;
+import dnd.simulator.creatures.skills.Skill;
 
 //For most tests paladin character class and 'defender' role is selected beacuse if no race, type and subtype is used this 
 //build guarantees that constitution will be considered the highest atribute and intelligence will be the lowest priority
@@ -131,7 +133,8 @@ public class RollsAssignerTestSuite {
     @Test
     void shouldAssignOnlyFourAtributesForIncorporalUndead(){
         //Given
-        Creature ghost = new Creature("ghost", "undead", "incorporeal", "medium", 30, "noClass", 0, 0, 0, 0, 0, 0, new ArrayList<Feat>(), 0);
+        Creature ghost = new Creature("ghost", "undead", "incorporeal", "medium", 30, "noClass",
+        0, 0, 0, 0, 0, 0, new ArrayList<Feat>(), 0, new ArrayList<Skill>(), new HashMap<String, Integer>());
         
         //When
         ghost = rollAssigner.assignRolls(ghost, ghost.getCharacterClass(), "maxed", "defender");

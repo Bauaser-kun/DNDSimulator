@@ -1,7 +1,7 @@
 package dnd.simulator.creatures.feats;
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.HashMap;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,4 +23,5 @@ public class FeatPrerequisite {
     private String special;
     private int baseAttack;
     private ArrayList<Skill> skills;
+    private HashMap<String, Integer> classLevels;
 }
