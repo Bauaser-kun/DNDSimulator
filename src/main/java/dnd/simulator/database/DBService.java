@@ -15,6 +15,6 @@ public class DBService {
     private final FeatsRepository featsRepository;
 
     public List<Feat> getAllFeats() {
-        return null;
+        return featsRepository.findAll();
     }
 }

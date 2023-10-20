@@ -20,4 +20,6 @@ public interface FeatsRepository extends CrudRepository<Feat, String> {
     List<Feat> findByMaxCount(int maxCount);
 
     List<Feat> findByBonusFor(ArrayList<String> bonusFor);
+
+    List<Feat> findAll();
 }
