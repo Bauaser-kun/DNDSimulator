@@ -32,3 +32,10 @@ branch: speciesOrRace
 - mapper
 - controller initial implementation
 / CSV file containing races and monststers
+
+branch: skills
+- skill and DTO initial implementation 
+- database service and repository
+- mapper
+- controller initial implementation
+/ CSV file containing skills 
