@@ -27,5 +27,5 @@ public class FeatDto {
 
     public int maxCount;
 
-    public ArrayList<CharacterClass> bonusFor;
+    public ArrayList<String> bonusFor;
 }

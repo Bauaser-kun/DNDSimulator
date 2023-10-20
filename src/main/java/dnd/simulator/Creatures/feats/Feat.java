@@ -40,5 +40,5 @@ public class Feat {
     public int maxCount;
 
     @Column(name = "bonus for")
-    public ArrayList<CharacterClass> bonusFor;
+    public ArrayList<String> bonusFor;
 }
