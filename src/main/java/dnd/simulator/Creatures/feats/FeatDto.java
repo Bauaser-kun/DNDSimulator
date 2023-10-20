@@ -2,7 +2,6 @@ package dnd.simulator.creatures.feats;
 
 import java.util.ArrayList;
 
-import dnd.simulator.creatures.CharacterClass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
