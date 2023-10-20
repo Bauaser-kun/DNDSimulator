@@ -39,5 +39,3 @@ branch: skills
 - mapper
 - controller initial implementation
 / CSV file containing skills 
-
-#This line was added to test githuba protection rule
