@@ -16,15 +16,17 @@ branch: specialAbilities
 - mapper
 - controller initial implementation
 / CSV file containing special abilities
+- tests for new features
 
 branch: feats
 + feat and DTO initialy implemented
-- database service and repository
-- mapper
-- controller initial implementation
+- database service and repository initial implementation
+- mapper initial implementation
+- controller initial implementation initial implementation
 / create a method to apply Armor and weapon proficienct feeats for class and creature types.
 + prerequesites reader - method to confirm if creature can attain the feat or if it is innaccessible for it.
 / CSV file containing feats
+- tests for new features
 
 branch: speciesOrRace
 + race and DTO initialy implemented
@@ -32,6 +34,7 @@ branch: speciesOrRace
 - mapper
 - controller initial implementation
 / CSV file containing races and monststers
+- tests for new features
 
 branch: skills
 - skill and DTO initial implementation 
@@ -39,3 +42,4 @@ branch: skills
 - mapper
 - controller initial implementation
 / CSV file containing skills 
+- tests for new features
