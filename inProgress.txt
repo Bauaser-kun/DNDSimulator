@@ -20,9 +20,9 @@ branch: specialAbilities
 
 branch: feats
 + feat and DTO initialy implemented
-- database service and repository initial implementation
-- mapper initial implementation
-- controller initial implementation initial implementation
++ database service and repository initial implementation
++ mapper initial implementation
++ controller initial implementation initial implementation
 / create a method to apply Armor and weapon proficienct feeats for class and creature types.
 + prerequesites reader - method to confirm if creature can attain the feat or if it is innaccessible for it.
 / CSV file containing feats
