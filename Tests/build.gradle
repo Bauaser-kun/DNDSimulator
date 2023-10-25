@@ -48,3 +48,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit'
 }
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}

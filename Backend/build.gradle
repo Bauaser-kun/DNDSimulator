@@ -41,3 +41,11 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'javax.annotation:javax.annotation-api'
 }
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
