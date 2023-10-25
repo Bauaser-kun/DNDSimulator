@@ -22,9 +22,7 @@ repositories {
 }
 
 dependencies {
-    compile project(':DTO')
     implementation project(':DTO')
-    compile project(':Backend')
     implementation project(':Backend')
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
