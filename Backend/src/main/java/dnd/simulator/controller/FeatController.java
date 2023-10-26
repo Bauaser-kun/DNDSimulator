@@ -1,4 +1,4 @@
-package dnd.simulator.controllers;
+package dnd.simulator.controller;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import dnd.simulator.creatures.feats.Feat;
 import dnd.simulator.creatures.feats.FeatDto;
 import dnd.simulator.database.DBService;
-import dnd.simulator.mappers.FeatMapper;
+import dnd.simulator.mapper.FeatMapper;
 import lombok.RequiredArgsConstructor;
 
 @RestController
