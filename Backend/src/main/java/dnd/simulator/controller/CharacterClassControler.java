@@ -1,4 +1,4 @@
-package dnd.simulator.controllers;
+package dnd.simulator.controller;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import dnd.simulator.creatures.characterClasses.CharacterClass;
 import dnd.simulator.creatures.characterClasses.CharacterClassDto;
 import dnd.simulator.database.DBService;
-import dnd.simulator.mappers.CharacterClassMapper;
+import dnd.simulator.mapper.CharacterClassMapper;
 import lombok.RequiredArgsConstructor;
 
 @RestController

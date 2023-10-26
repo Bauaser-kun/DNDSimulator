@@ -1,4 +1,4 @@
-package dnd.simulator.mappers;
+package dnd.simulator.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
