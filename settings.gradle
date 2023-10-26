@@ -6,3 +6,7 @@ pluginManagement {
 	}
 }
 rootProject.name = 'simulator'
+include 'Frontend'
+include 'DTO'
+include 'Backend'
+include 'Tests'
