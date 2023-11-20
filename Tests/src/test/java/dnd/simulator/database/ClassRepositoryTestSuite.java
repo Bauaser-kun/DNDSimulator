@@ -7,7 +7,6 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dnd.simulator.creatures.CharacterClass;
@@ -21,6 +20,10 @@ public class ClassRepositoryTestSuite {
     ClassRepository classRepository;
 
     @Test
+	void contextLoads() {
+	}
+
+    @Test
     void testSaveClass() {
         //Given
         ArrayList<String> roles = new ArrayList<>(
@@ -29,8 +32,8 @@ public class ClassRepositoryTestSuite {
         CharacterClass fighter = new CharacterClass("testFighter", roles, new ArrayList<>(), false, "Nothing", false, 10, "basic");
 
         //When
-        dbService.saveCharacterClass(fighter);
-//        classRepository.save(fighter);
+        //dbService.saveCharacterClass(fighter);
+        classRepository.save(fighter);
 
         //Then
         assertEquals("testFighter", fighter.className);

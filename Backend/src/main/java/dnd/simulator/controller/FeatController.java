@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import dnd.simulator.creatures.feats.Feat;
-import dnd.simulator.creatures.feats.FeatDto;
 import dnd.simulator.database.DBService;
+import dnd.simulator.dto.FeatDto;
 import dnd.simulator.mapper.FeatMapper;
 import lombok.RequiredArgsConstructor;
 
