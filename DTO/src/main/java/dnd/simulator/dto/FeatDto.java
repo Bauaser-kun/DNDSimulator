@@ -1,4 +1,4 @@
-package dnd.simulator.creatures.feats;
+package dnd.simulator.dto;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ public class FeatDto {
     
     public String type;
 
-    public FeatPrerequisite prerequesites;
+    public FeatPrerequisiteDto prerequesites;
 
     public String benefit;
 

@@ -22,6 +22,8 @@ repositories {
 }
 
 dependencies {
+	implementation project (':Backend')
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'

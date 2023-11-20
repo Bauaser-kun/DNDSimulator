@@ -22,9 +22,9 @@ repositories {
 }
 
 dependencies {
-    implementation project(':DTO')
+	implementation project(':DTO')
     implementation project(':Backend')
-    implementation project(':Frontend')
+	implementation project(':Frontend')
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
@@ -44,7 +44,7 @@ dependencies {
     
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit'
-	//testCompile 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine'
 }
 
 bootJar {

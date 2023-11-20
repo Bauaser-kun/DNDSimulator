@@ -1,4 +1,4 @@
-package dnd.simulator.creatures.skills;
+package dnd.simulator.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -4,26 +4,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import dnd.simulator.DNDSimulatorApplication;
 import dnd.simulator.creatures.CharacterClass;
 
-@SpringBootTest
+@RunWith(SpringRunner.class)
 public class ClassRepositoryTestSuite {
     @Autowired
-    private ClassRepository classRepository;
+    DBService dbService;
 
-    /*@BeforeAll
-    static void fillDatabaseBeforeTestsIfNotFilled () {
-        DbInitialSetup initialSetup = new DbInitialSetup();
-        initialSetup.addClassesToDatabase("defaultClasses.csv");
-    }*/
+    @Autowired
+    ClassRepository classRepository;
+
+    @Test
+	void contextLoads() {
+	}
 
     @Test
     void testSaveClass() {
@@ -34,6 +32,7 @@ public class ClassRepositoryTestSuite {
         CharacterClass fighter = new CharacterClass("testFighter", roles, new ArrayList<>(), false, "Nothing", false, 10, "basic");
 
         //When
+        //dbService.saveCharacterClass(fighter);
         classRepository.save(fighter);
 
         //Then

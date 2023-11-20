@@ -1,4 +1,4 @@
-package dnd.simulator.creatures.feats;
+package dnd.simulator.dto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,13 +8,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import dnd.simulator.creatures.skills.*;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FeatPrerequisite {
+public class FeatPrerequisiteDto {
     private Integer strength;
     private Integer dexterity;
     private Integer constitution;
@@ -24,6 +22,6 @@ public class FeatPrerequisite {
     private ArrayList<String> feats;
     private String special;
     private int baseAttack;
-    private ArrayList<Skill> skills;
+    private ArrayList<SkillDto> skills;
     private HashMap<String, Integer> classLevels;
 }
