@@ -1,7 +1,6 @@
 package dnd.simulator.mapper;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -11,8 +10,8 @@ import dnd.simulator.dto.SkillDto;
 
 @Service
 public class SkillMapper {
-    public List<SkillDto> mapToSkillDtoList(List<Skill> skills) {
-        return skills.stream().map(this::mapToSkillDto).collect(Collectors.toList());
+    public ArrayList<SkillDto> mapToSkillDtoList(ArrayList<Skill> skills) {
+        return (ArrayList<SkillDto>) skills.stream().map(this::mapToSkillDto).collect(Collectors.toList());
     }
     
     public ArrayList<Skill> mapToFeatList(ArrayList<SkillDto> skillDtos) {
