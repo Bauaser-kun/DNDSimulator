@@ -22,8 +22,6 @@ repositories {
 }
 
 dependencies {
-	implementation project (':Backend')
-
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
@@ -31,14 +29,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' 
 	implementation 'org.springframework.session:spring-session-jdbc'
 	
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 	runtimeOnly 'mysql:mysql-connector-java'
 
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'javax.annotation:javax.annotation-api'
+	implementation 'javax.annotation:javax.annotation-api:1.3.2'
     
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit'
